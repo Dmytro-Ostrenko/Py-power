@@ -56,8 +56,10 @@ class BotAssist:
         pass
 
     def delete_contact(self, contact_name):
-        # Удаление контакта
-        pass
+        for contact in self.contacts:
+            if contact_name.lower() in contact.name.lower():
+                self.contacts.remove(contact)
+        return f'{contact_name} removed'
 
     def add_note(self, text, tags):
         # Добавить заметку, теги
@@ -89,14 +91,14 @@ def main():
    while True:
        command = input("\nEnter your command: ").lower()
     
-       if command == '1':
+       elif command == '1':
           name = input('Enter your name:')
           address = input('Enter your adress:')
           phone = input('Enter your phone (10-digits) : ')
           email = input('Enter your email:')
           birthday = input('Enter your birthday in YYYY-MM-DD:')
           assistant.add_contact(name, address, phone, email, birthday)
-       if command == '2':
+       elif command == '2':
           search_query = input("Enter first name or last name: ")
 
           results = assistant.search_contacts(search_query)
@@ -106,9 +108,12 @@ def main():
                  print(result.name, "|", result.address, "|", result.phone, "|", result.email, "|", result.birthday, "|")
           else:
            print("No contacts found.")
-       elif command in ['end', 'close', 'exit']:
+        elif command == '3':
+          contact_name = input('Enter the contact name you want to delete:')
+          print(assistant.delete_contact(contact_name))
+        elif command in ['end', 'close', 'exit']:
            break
-       else:
+        else:
             print("Invalid, Try Again:")
            
            
