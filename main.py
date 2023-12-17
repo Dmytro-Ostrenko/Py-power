@@ -17,8 +17,8 @@ class Note:
 class BotAssist:
     def __init__(self):
         self.contacts = []
-        self.notes = []
-        self.notes_index = {}
+        self.notes = {}
+        self.tags = {}
 
     def validate_phone(self, phone):
         return phone.isdigit() and len(phone) == 10
@@ -78,21 +78,25 @@ class BotAssist:
         # Удалить заметку
         pass
 
-    def add_tags_to_note(self, text, new_tags):
-        for note in self.notes:
-            if note.text.lower() == text.lower():
-                note.tags.extend(new_tags)
-                print("Tags added to the note successfully.")
-                return
-        print("Note not found.")
+    def add_tags_to_note(self, title, new_tags):
+        if title in self.notes:
+            self.notes[title].tags.extend(new_tags)
+            for tag in new_tags:
+                if tag in self.tags:
+                    self.tags[tag].append(title)
+                else:
+                    self.tags[tag] = [title]
+            print("Ok")
+        else:
+            print("Not found.")
 
     def search_notes_by_tags(self, tags):
         results = []
         for tag in tags:
-            tag_lower = tag.lower()
-            if tag_lower in self.notes_index:
-                results.extend(self.notes_index[tag_lower])
-        return results
+            if tag in self.tags:
+                results.extend([self.notes[title] for title in self.tags[tag]])
+        sorted_results = sorted(results, key=lambda x: x.title)
+        return sorted_results
 
     def save_data(self, filename):
         # Сохранение книги
@@ -129,6 +133,20 @@ def main():
        elif command == '3':
           contact_name = input('Enter the contact name you want to delete:')
           print(assistant.delete_contact(contact_name))
+
+       elif command == '7': # команда для запису тегів до нотатків
+            title = input('Enter title')
+            new_tags = input('Enter tags:').split(',')
+            assistant.add_tags_to_note(title, new_tags)
+
+       elif command == '8': # команда для пошуку нотатків за тегами (відсортованих)
+        tags = input('Введіть теги для пошуку (розділені комою):').split(',')
+        results = assistant.search_notes_by_tags(tags)
+        if results:
+            for result in results:
+                print(result.title, "|", result.text, "|", result.tags)
+        else:
+            print("Not faund.")
 
        elif command in ['end', 'close', 'exit']:
           break
