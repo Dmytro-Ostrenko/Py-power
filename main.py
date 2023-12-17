@@ -88,6 +88,9 @@ class BotAssist:
                 print(f'{contact_name} removed')
             else:
                 print("Contact not found")
+                
+                
+    
       
 
     def add_note(self, note_name, note_text):
@@ -129,7 +132,8 @@ class BotAssist:
                 print("Deletion aborted.")
         else:
             print(f"Note '{note_name}' does not exist.")
-
+            
+            
     def add_tags_to_note(self, title, new_tags):
         if title in self.notes:
             self.notes[title].tags.extend(new_tags)
@@ -138,21 +142,24 @@ class BotAssist:
                     self.tags[tag].append(title)
                 else:
                     self.tags[tag] = [title]
-            print("Ok")
+            print("Tags added successfully.")
         else:
-            print("Not found.")
-
+            print("Note not found.")
+            
     def search_notes_by_tags(self, tags):
         results = []
-        for tag in tags:
-            if tag in self.tags:
-                results.extend([self.notes[title] for title in self.tags[tag]])
-        sorted_results = sorted(results, key=lambda x: x.title)
+        for note_name, note in self.notes.items():
+            if all(tag in note.tags for tag in tags):
+                results.append(note)
+        sorted_results = sorted(results, key=lambda x: x.text)
         return sorted_results
 
+
     def save_data(self, filename):
-        # Сохранение книги
-        pass
+        with open(filename, "wb") as file:
+            data = {"contacts": self.contacts, "notes": self.notes, "tags": self.tags}
+            pickle.dump(data, file)
+        print("Data saved successfully.")
 
     def load_data(self, filename):
         # Загрузка книги
@@ -227,20 +234,23 @@ def main():
             else:
                 print("Invalid command. Please enter 'edit' or 'delete'.")
     
-
-       elif command == '9': # команда для запису тегів до нотатків
-            title = input('Enter title:')
-            new_tags = input('Enter tags:').split(',')
+                
+       elif command == '9': # Виклик методу для додавання тегів до нотатків
+            title = input("Enter note name:")
+            new_tags = input("Enter tags:").split(",")
             assistant.add_tags_to_note(title, new_tags)
-
-       elif command == '10': # команда для пошуку нотатків за тегами (відсортованих)
-            tags = input('Введіть теги для пошуку (розділені комою):').split(',')
+       elif command == "10": # пошук нотатків за тегами
+            tags = input("Enter tags for search (comma separated):").split(",")
             results = assistant.search_notes_by_tags(tags)
             if results:
                 for result in results:
-                    print(result.title, "|", result.text, "|", result.tags)
+                    print(result.tags, "|", result.text)
             else:
                 print("Not found.")
+                
+       elif command == "save":
+           filename = input("Enter the filename to save data: ")
+           assistant.save_data(filename)
 
        elif command in ['end', 'close', 'exit']:
           break
