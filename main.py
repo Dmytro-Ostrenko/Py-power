@@ -134,12 +134,12 @@ def main():
           contact_name = input('Enter the contact name you want to delete:')
           print(assistant.delete_contact(contact_name))
 
-       elif command == '7': # команда для запису тегів до нотатків
+       elif command == '9': # команда для запису тегів до нотатків
             title = input('Enter title')
             new_tags = input('Enter tags:').split(',')
             assistant.add_tags_to_note(title, new_tags)
 
-       elif command == '8': # команда для пошуку нотатків за тегами (відсортованих)
+       elif command == '10': # команда для пошуку нотатків за тегами (відсортованих)
             tags = input('Введіть теги для пошуку (розділені комою):').split(',')
             results = assistant.search_notes_by_tags(tags)
             if results:
