@@ -34,6 +34,11 @@ class BotAssist:
         if not self.validate_email(email):
             print("Invalid email format. Please enter a valid email address.")
             return
+        
+        for contact in self.contacts:
+          if contact.name.lower() == name.lower() and contact.birthday.lower() == birthday.lower():
+             print(f"Contact with name '{name}' and birthday '{birthday}' already exists. Can not duplicate contact.")
+             return
 
         contact = Contact(name, address, phone, email, birthday)
         self.contacts.append(contact)
@@ -68,17 +73,23 @@ class BotAssist:
 
         
 
-    def edit_contact(self, old_contact_name, new_contact_name):
-        contact_replaced = False
-        for contact in self.contacts:
-            if contact.name == old_contact_name:
-                contact.name = new_contact_name  # Update the name directly
-                contact_replaced = True
-                break  # Завершуємо цикл, якщо знайшли контакт
-        if contact_replaced:
-            return f'Contact {old_contact_name} successfully edited to {new_contact_name}.'
-        else:
-            raise ValueError('Даного контакту не існує')
+    def edit_contact(self, old_contact_name, new_name, new_address, new_phone, new_email, new_birthday):
+      contact_found = False
+      for contact in self.contacts:
+        if contact.name.lower() == old_contact_name.lower():
+            contact_found = True
+            contact.name = new_name
+            contact.address = new_address
+            contact.phone = new_phone
+            contact.email = new_email
+            contact.birthday = new_birthday
+            break
+
+      if not contact_found:
+         return f'Contact not found'
+
+      return f'Contact {old_contact_name} successfully edited.'
+
 
     def delete_contact(self, contact_name):
 
@@ -169,7 +180,7 @@ def main():
    assistant =  BotAssist()
 
    while True:
-       command = input("\nEnter your command: ").lower()
+       command = input("\nEnter your command(1-add contact, 2-search con, 3-delete con, 4-edit con, 5-find birthday, 6-add note,7-search note,8-edit note,9-add tag,10-search note by tag, exit): ").lower()
     
        if command == '1':
           name = input('Enter your name:')
@@ -198,15 +209,20 @@ def main():
               assistant.delete_contact(contact_name)
 
        elif command == '4':
-            old_contact_name = input('Enter the contact old name you want to edit: ')
-            new_name = input('Enter the new name: ')
-            new_address = input('Enter the new address: ')
-            new_phone = input('Enter the new phone: ')
-            new_email = input('Enter the new email: ')
-            new_birthday = input('Enter the new birthday in YYYY-MM-DD: ')
+          old_contact_name = input('Enter the contact old name you want to edit: ')
+          contact_exists = any(contact.name.lower() == old_contact_name.lower() for contact in assistant.contacts)
 
-            assistant.edit_contact(old_contact_name, new_name, new_address, new_phone, new_email, new_birthday)
-            print(f'Contact {old_contact_name} successfully edited.')
+          if not contact_exists:
+            print(f'Contact "{old_contact_name}" does not exist. Please, try again.')
+            continue
+
+          new_name = input('Enter the new name: ')
+          new_address = input('Enter the new address: ')
+          new_phone = input('Enter the new phone: ')
+          new_email = input('Enter the new email: ')
+          new_birthday = input('Enter the new birthday in YYYY-MM-DD: ')
+
+          print(assistant.edit_contact(old_contact_name, new_name, new_address, new_phone, new_email, new_birthday))
 
        elif command == '5':
             day_to_birthday = int(input("Enter the number of days until the birthday: "))
