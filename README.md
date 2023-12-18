@@ -71,13 +71,13 @@ A program for implementing a personal assistant.
      - Type the command "8" and press Enter.
      - To edit a note, type "edit", then the name of the note and the new text.
      - To delete a note, type "delete", then the name of the note.
-Adding tags (keywords) to notes:
+*Adding tags (keywords) to notes:
     - Enter the command “9" and press “Enter.”
     - Follow the instructions that appear to create tags for the note.
     - Enter the note title and press “Enter.”
     - Enter the tags, separating them with commas, and press “Enter.”
     - After successfully creating the tags, you will receive the response “Tags added successfully.” If a note with that title does not exist, you will receive         “Note not found.”
-Searching for notes by tags:
+*Searching for notes by tags:
     - Enter the command “10" and press “Enter.”
     - Follow the instructions that appear to search for notes using tags (keywords).
     - Enter the tags, separating them with commas, and press “Enter.”
