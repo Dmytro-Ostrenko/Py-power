@@ -1,5 +1,7 @@
 # Py-power
 A program for implementing a personal assistant.
+
+```
 Українська:
 Інструкція користувача для програми "Персональний помічник":
 Додавання нової нотатки:
@@ -30,3 +32,4 @@ Edit or delete a note:
      - To delete a note, type "delete", then the name of the note.
 PS:
 Follow the instructions of the program and enter the data in the appropriate format.
+```
