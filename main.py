@@ -180,6 +180,7 @@ def main():
    assistant =  BotAssist()
 
    while True:
+
        command = input("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit note\n 9-add tag \n 10-search note by tag\n exit-if you want exit\n save-if you want save information\n\nEnter your command for start: ").lower()
     
        if command == '1':
