@@ -12,8 +12,8 @@ A program for implementing a personal assistant.
     - Введіть ім’я контакту, що хочете змінити.
     - Введіть його нову адресу(або стару).
     - Введіть його новий телефон(або старий).
-- Введіть його новий email (або старий).
-- Введіть його редагований день народження (або старий).
+    - Введіть його новий email (або старий).
+    - Введіть його редагований день народження (або старий).
 *Пошук контактів із днями народження найближчим часом:
     - Введіть команду "5" та натисніть Enter.
     - Введіть кількість днів від поточної дати до тієї за якої Ви хочете подивитися список контактів із днями народження.
@@ -43,8 +43,8 @@ Reading language: english:User guide for "Personal Assistant":
      - Enter the name of the contact you want to change.
      - Enter his new address (or old).
      - Enter his new phone (or old).
-- Enter his new email (or old).
-- Enter his editable birthday (or old).
+    - Enter his new email (or old).
+    - Enter his editable birthday (or old).
 *Search for contacts with birthdays in the near future:
      - Type the command "5" and press Enter.
      - Enter the number of days from the current date to the one for which you want to see a list of contacts with birthdays.
