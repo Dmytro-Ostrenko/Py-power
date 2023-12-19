@@ -3,6 +3,13 @@ A program for implementing a personal assistant.
 
 ```
 ===Мова читання: українська:Інструкція користувача для програми "Персональний помічник":===
+*Додавання нового контакту :
+    - Введіть команду "1" та натисніть Enter.
+    - Введіть ім'я контакту, його адресу, телефон, пошту, а також дату його народження.
+    - Якщо контакт із таким ім'ям і з такою самою датою народження вже існує, продублювати контакт не вийде.
+*Пошук контакта:
+    - Для пошуку контакту введіть команду "2" і натисніть "Enter". 
+    - Далі введіть ім'я контакту або його прізвище, введення не чутливе до регістру.
 *Видалення записів із книги контактів:
     - Введіть команду "3" та натисніть Enter.
     - Введіть ім’я контакту, який хочете видалити.
@@ -45,7 +52,13 @@ A program for implementing a personal assistant.
 ```
 ```
 ===Reading language: english:User guide for "Personal Assistant":===
-
+*Add a new contact :
+    - Type the command "1" and press Enter.
+    - Enter the contact's name, address, phone number, email, and date of birth.
+    - If a contact with the same name and date of birth already exists, you cannot duplicate the contact.
+*Search for a contact:
+    - To search for a contact, enter command "2" and press Enter. 
+    - Next, enter the contact's first name or last name; the input is not case sensitive.
 *Deleting entries from the contact book:
      - Type the command "3" and press Enter.
      - Enter the name of the contact you want to delete.
