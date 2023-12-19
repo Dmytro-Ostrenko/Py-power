@@ -308,7 +308,7 @@ def main():
 
             
        elif command == 'sort':
-           folder_path = input("Enter the folder path to sort: ")
+           folder_path = Path(input("Enter the folder path to sort (absolute path): "))
            assistant.sort_files(folder_path)  
            
        elif command == 'menu':
