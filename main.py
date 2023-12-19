@@ -305,11 +305,11 @@ def main():
        elif command == 'load':
             filename = input("Enter the filename to load data: ")
             assistant.load_data(filename) 
-
-            
        elif command == 'sort':
-           folder_path = input("Enter the folder path to sort: ")
-           assistant.sort_files(folder_path)  
+           folder_path = Path(input("Enter the folder path to sort (absolute path):"))
+           assistant.sort_files(folder_path)
+           print("Folder is sorted successfully!")
+
            
        elif command == 'menu':
             print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n")
