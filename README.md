@@ -12,20 +12,20 @@ A program for implementing a personal assistant.
 1. Клонуйте репозиторій на свій комп'ютер:
 
     ```bash
-    git clone https://github.com/ваш-користувальницький-ім'я/ваш-репозиторій.git
+    git clone https://github.com/Dmytro-Ostrenko/Py-power
     ```
 
 2. Перейдіть в каталог проєкту:
-
-    ```bash
-    cd ваш-репозиторій
+    ```console
+    cd Py-power
     ```
+
 
 3. Встановіть Персональний Помічник як Python-пакет:
-
-    ```bash
+    ```console
     pip install .
     ```
+
 
 
 ```
