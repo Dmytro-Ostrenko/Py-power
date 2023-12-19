@@ -9,13 +9,12 @@ A program for implementing a personal assistant.
 
 Перед тим, як ви почнете використовувати Персональний Помічник, вам потрібно встановити його. Дотримуйтесь цих кроків:
 
-1. Клонуйте репозиторій на свій комп'ютер:
+1. Клонуйте репозиторій на свій комп'ютер:    
+:white_check_mark: git clone https://github.com/Dmytro-Ostrenko/Py-power
 
-    #### git clone https://github.com/Dmytro-Ostrenko/Py-power
 
-
-2. Перейдіть в каталог проєкту:
-    #### cd Py-power
+2. Перейдіть в каталог проєкту:    
+:white_check_mark:cd Py-power
 
 
 3. Встановіть Персональний Помічник як Python-пакет:    
