@@ -1,6 +1,6 @@
 # Py-power
 A program for implementing a personal assistant.
-```
+
 # Інструкція з встановлення та користування «Персональним помічником»
 ## Передумови
 Переконайтеся, що на вашому комп'ютері встановлено Python версії 3.11 або новіше. Ви можете завантажити Python з [офіційного сайту](https://www.python.org/downloads/).
@@ -11,19 +11,17 @@ A program for implementing a personal assistant.
 
 1. Клонуйте репозиторій на свій комп'ютер:
 
-    :white_check_mark:  git clone https://github.com/Dmytro-Ostrenko/Py-power
- 
+    #### git clone https://github.com/Dmytro-Ostrenko/Py-power
+
 
 2. Перейдіть в каталог проєкту:
-    :white_check_mark:  cd Py-power
+    #### cd Py-power
 
 
 3. Встановіть Персональний Помічник як Python-пакет:
     :white_check_mark: pip install .
 
 
-
-```
 ```
 ===Мова читання: українська:Інструкція користувача для програми "Персональний помічник":===
 *Видалення записів із книги контактів:
@@ -62,10 +60,11 @@ A program for implementing a personal assistant.
     - Слідуйте інструкціям, які з’являться, для пошуку нотатків за допомогою тегів(ключових слів).
     - Ведіть теги, розділяючи їх комами та натисніть „Enter”.
     - Ви отримаєте нотатки відповідно до тегів, якщо таких тегів не було створено отримаєте “Not found”.
+```
 
 Примітка:
 Слідкуйте за інструкціями програми та вводьте дані у відповідному форматі.
-```
+---
 ```
 ===Reading language: english:User guide for "Personal Assistant":===
 
@@ -105,7 +104,7 @@ A program for implementing a personal assistant.
     - Follow the instructions that appear to search for notes using tags (keywords).
     - Enter the tags, separating them with commas, and press “Enter.”
     - You will receive notes corresponding to the tags; if no such tags were created, you will receive “Not found.”
-
+```
 PS:
 Follow the instructions of the program and enter the data in the appropriate format.
-```
+---
