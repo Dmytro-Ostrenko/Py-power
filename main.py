@@ -208,9 +208,13 @@ class BotAssist:
 
 def main():
    assistant =  BotAssist()
+   
 
    while True:
-       command = input("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n\nEnter your command for start: ").lower()
+       
+              
+       
+       command = input("\nEnter your command for start(for menu-press menu): ").lower()
     
        if command == '1':
           name = input('Enter your name:')
@@ -306,6 +310,10 @@ def main():
        elif command == 'sort':
            folder_path = input("Enter the folder path to sort: ")
            assistant.sort_files(folder_path)  
+           
+       elif command == 'menu':
+            print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n")
+          
 
        elif command in ['end', 'close', 'exit']:
           break
