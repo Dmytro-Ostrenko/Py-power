@@ -287,8 +287,8 @@ def main():
 
             
        elif command == 'sort':
-           folder_path = input("Enter the folder path to sort: ")
-           assistant.sort_files(folder_path)  
+           folder_path = Path(input("Enter the folder path to sort: "))
+           assistant.sort_files(folder_path) 
 
        elif command in ['end', 'close', 'exit']:
           break
