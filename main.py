@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 import pickle
+from pathlib import Path
+from test import FileSorter 
 
 class Contact:
     def __init__(self, name, address, phone, email, birthday):
@@ -52,7 +54,7 @@ class BotAssist:
             birthday_date = datetime(today.year, *map(int, contact.birthday.split('-')[1:]))
             days_until_birthday = (birthday_date - today).days
 
-            if 0 < days_until_birthday <= days:
+            if -1 <= days_until_birthday <= days:
                 upcoming_birthday_contacts.append(contact)
 
         if upcoming_birthday_contacts:
@@ -75,14 +77,23 @@ class BotAssist:
 
     def edit_contact(self, old_contact_name, new_name, new_address, new_phone, new_email, new_birthday):
       contact_found = False
+      if not self.validate_phone(new_phone):
+        print("Invalid phone number format. Please enter a 10-digit number.")
+        return
+
+      if not self.validate_email(new_email):
+        print("Invalid email format. Please enter a valid email address.")
+        return
       for contact in self.contacts:
         if contact.name.lower() == old_contact_name.lower():
             contact_found = True
             contact.name = new_name
-            contact.address = new_address
+            if not new_address==None:
+                contact.address = new_address
             contact.phone = new_phone
             contact.email = new_email
-            contact.birthday = new_birthday
+            if not new_birthday==None:
+                contact.birthday = new_birthday
             break
 
       if not contact_found:
@@ -173,14 +184,25 @@ class BotAssist:
         print("Data saved successfully.")
 
     def load_data(self, filename):
-        # Загрузка книги
-        pass
+        try:
+            with open(filename, 'rb') as file:
+                data = pickle.load(file)
+                self.contacts = data.get('contacts', [])
+                self.notes = data.get('notes', {})
+                self.tags = data.get('tags', {})
+            print("Data loaded successfully.")
+        except FileNotFoundError:
+            print("File not found. No data loaded.")
+
+    def sort_files(self, folder_path):
+        file_sorter = FileSorter(folder_path)
+        file_sorter.core()
 
 def main():
    assistant =  BotAssist()
 
    while True:
-       command = input("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit note\n 9-add tag \n 10-search note by tag\n exit-if you want exit\n save-if you want save information\n\nEnter your command for start: ").lower()
+       command = input("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n\nEnter your command for start: ").lower()
     
        if command == '1':
           name = input('Enter your name:')
@@ -267,6 +289,15 @@ def main():
        elif command == "save":
            filename = input("Enter the filename to save data: ")
            assistant.save_data(filename)
+
+       elif command == 'load':
+            filename = input("Enter the filename to load data: ")
+            assistant.load_data(filename) 
+
+            
+       elif command == 'sort':
+           folder_path = input("Enter the folder path to sort: ")
+           assistant.sort_files(folder_path)  
 
        elif command in ['end', 'close', 'exit']:
           break
