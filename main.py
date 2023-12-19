@@ -214,7 +214,7 @@ def main():
        
               
        
-       command = input("\nEnter your command for start(for menu-press menu): ").lower()
+       command = input("\nEnter your command for start(for menu-press 'menu'): ").lower()
     
        if command == '1':
           name = input('Enter your name:')
