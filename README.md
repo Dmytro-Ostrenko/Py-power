@@ -18,8 +18,8 @@ A program for implementing a personal assistant.
     #### cd Py-power
 
 
-3. Встановіть Персональний Помічник як Python-пакет:
-    :white_check_mark: pip install .
+3. Встановіть Персональний Помічник як Python-пакет:    
+:white_check_mark: pip install .    
 
 
 ```
