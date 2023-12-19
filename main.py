@@ -45,13 +45,20 @@ class BotAssist:
         contact = Contact(name, address, phone, email, birthday)
         self.contacts.append(contact)
         print("Contact added successfully.")
-
+        
     def search_contacts_birthday(self, days):
         upcoming_birthday_contacts = []
         today = datetime.now()
 
         for contact in self.contacts:
-            birthday_date = datetime(today.year, *map(int, contact.birthday.split('-')[1:]))
+            birthday_month, birthday_day = map(int, contact.birthday.split('-')[1:])
+            birthday_date = datetime(today.year, birthday_month, birthday_day)
+
+        # Check if the birthday has already passed this year
+            if birthday_date < today:
+            # If yes, consider the birthday for the next year
+                birthday_date = datetime(today.year + 1, birthday_month, birthday_day)
+
             days_until_birthday = (birthday_date - today).days
 
             if -1 <= days_until_birthday <= days:
@@ -63,7 +70,8 @@ class BotAssist:
                 print(contact.name, "|", contact.address, "|", contact.phone, "|", contact.email, "|", contact.birthday, "|")
         else:
             print("No contacts with upcoming birthdays.")
-            
+
+    
 
 
     def search_contacts(self, query):
