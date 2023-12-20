@@ -13,11 +13,11 @@ A program for implementing a personal assistant.
 :white_check_mark: git clone https://github.com/Dmytro-Ostrenko/Py-power
 
 
-2. Перейдіть в каталог проєкту:    
+3. Перейдіть в каталог проєкту:    
 :white_check_mark:cd Py-power
 
 
-3. Встановіть Персональний Помічник як Python-пакет:    
+4. Встановіть "Персональний Помічник" як Python-пакет:       
 :white_check_mark: pip install .    
 
 
@@ -66,11 +66,36 @@ A program for implementing a personal assistant.
     - Слідуйте інструкціям, які з’являться, для пошуку нотатків за допомогою тегів(ключових слів).
     - Ведіть теги, розділяючи їх комами та натисніть „Enter”.
     - Ви отримаєте нотатки відповідно до тегів, якщо таких тегів не було створено отримаєте “Not found”.
+*Сортування файлів у зазначеній папці за категоріями:
+    - Ведіть команду „sort" та натисніть „Enter”.
+    - Слідуйте інструкціям, які з‘являться, для сортування зазначеної папки.
+    - Введіть повний (абсолютний) шлях до папки та натисніть „Enter”.
+    - Після успішного сортування папки отримаєте відповідь “Folder is sorted successfully”.
+
 ```
 
 Примітка:
 Слідкуйте за інструкціями програми та вводьте дані у відповідному форматі.
 ---
+# Instructions for installing and using "Personal Assistant"
+## Prerequisites
+Make sure you have Python version 3.11 or later installed on your computer. You can download Python from [official site]
+(https://www.python.org/downloads/).
+
+## Installation
+
+Before you can start using Personal Assistant, you need to install it. Follow these steps:
+
+1. Clone the repository to your computer:    
+:white_check_mark: git clone https://github.com/Dmytro-Ostrenko/Py-power    
+
+3. Go to the project directory:   
+:white_check_mark:cd Py-power
+
+
+4. Install "Personal Assistant" as a Python package:    
+:white_check_mark: pip install .    
+
 ```
 ===Reading language: english:User guide for "Personal Assistant":===
 *Add a new contact :
@@ -116,6 +141,12 @@ A program for implementing a personal assistant.
     - Follow the instructions that appear to search for notes using tags (keywords).
     - Enter the tags, separating them with commas, and press “Enter.”
     - You will receive notes corresponding to the tags; if no such tags were created, you will receive “Not found.”
+*Sorting files for assigned folders into categories:
+    - Enter the command “sort” and press “Enter”.
+    - Follow the instructions that appear to sort the designated folder.
+    - Enter the final (absolute) path to the folder and press “Enter”.
+    - After successfully sorting the folder, you will see the “Folder is sorted successfully” message.
+
 ```
 PS:
 Follow the instructions of the program and enter the data in the appropriate format.
