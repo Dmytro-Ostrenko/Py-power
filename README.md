@@ -21,9 +21,10 @@ A program for implementing a personal assistant.
 :white_check_mark: pip install .    
 
 
-```
-===Мова читання: українська:Інструкція користувача для програми "Персональний помічник":===
-*Додавання нового контакту :
+
+###    :smiley_cat: Мова читання (українська) Інструкція користувача для програми "Персональний помічник".
+```    
+Додавання нового контакту:
     - Введіть команду "1" та натисніть Enter.
     - Введіть ім'я контакту, його адресу, телефон, пошту, а також дату його народження.
     - Якщо контакт із таким ім'ям і з такою самою датою народження вже існує, продублювати контакт не вийде.
@@ -96,9 +97,10 @@ Before you can start using Personal Assistant, you need to install it. Follow th
 4. Install "Personal Assistant" as a Python package:    
 :white_check_mark: pip install .    
 
+
+###    :smile_cat: Reading language (english) User guide for "Personal Assistant".
 ```
-===Reading language: english:User guide for "Personal Assistant":===
-*Add a new contact :
+*Add a new contact:
     - Type the command "1" and press Enter.
     - Enter the contact's name, address, phone number, email, and date of birth.
     - If a contact with the same name and date of birth already exists, you cannot duplicate the contact.
