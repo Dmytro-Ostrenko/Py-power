@@ -336,7 +336,7 @@ def main():
 
            
        elif command == 'menu':
-            print("\nHello, I'm your 'Personal Assistant'.\nI can make next comand:\n---------------------------\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag\n--------------------------- \n show all-Show all contacts \n show all notes-Show all notes \n sort-if you want sort folder\n save-if you want save information\n show all notes- Show all notes\n exit, close, end-if you want exit\n---------------------------")
+            print("\nHello, I'm your 'Personal Assistant'.\nI save all information automatically. I can make next comand:\n---------------------------\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag\n--------------------------- \n show all-Show all contacts \n show all notes-Show all notes \n sort-if you want sort folder\n save-if you want save information handler\n load-if you want to continue with the previously saved information\n show all notes- Show all notes\n exit, close, end-if you want exit\n---------------------------")
           
 
        elif command in ['end', 'close', 'exit']:
