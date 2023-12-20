@@ -1,8 +1,8 @@
 # :robot:   Py-power:robot:
 
 
-<p align="center">
-  <img src="https://kept.com.ua/dqdN/image-Yuv3uNrau-transformed.png" alt="Logo"/>
+<p align="center" width="1000%">
+  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/>
 </p>
 
 # Інструкція з встановлення та користування «Персональним помічником»
