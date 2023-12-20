@@ -1,4 +1,10 @@
-# :robot:   Py-power:robot:    
+# :robot:   Py-power:robot:
+
+**Align center:**
+<p align="center" width="100%">
+    <img width="33%" src="https://kept.com.ua/dqdN/image-Yuv3uNrau-transformed.png">
+</p>
+
 
 # Інструкція з встановлення та користування «Персональним помічником»
 ## Передумови
