@@ -10,6 +10,8 @@ class Contact:
         self.phone = phone
         self.email = email
         self.birthday = birthday
+    def __str__(self):
+        return f"{self.name}:{self.address}: {self.phone}: {self.email}: {self.birthday}"
 
 class Note:
     def __init__(self, text):
@@ -29,14 +31,15 @@ class BotAssist:
         return '@' in email and '.' in email.split('@')[-1]
 
     def add_contact(self, name, address, phone, email, birthday):
-        if not self.validate_phone(phone):
-            print("Invalid phone number format. Please enter a 10-digit number.")
-            return
+        while True:
+          if not self.validate_phone(phone):
+            phone = input("Invalid phone number. Please enter a 10-digit number: ")
+            continue
 
-        if not self.validate_email(email):
-            print("Invalid email format. Please enter a valid email address.")
-            return
-        
+          if not self.validate_email(email):
+            email = input("Invalid email. Please enter email again: ")
+            continue
+          break
         for contact in self.contacts:
           if contact.name.lower() == name.lower() and contact.birthday.lower() == birthday.lower():
              print(f"Contact with name '{name}' and birthday '{birthday}' already exists. Can not duplicate contact.")
@@ -185,13 +188,13 @@ class BotAssist:
         return sorted_results
 
 
-    def save_data(self, filename):
+    def save_data(self, filename="save.pickle"):
         with open(filename, "wb") as file:
             data = {"contacts": self.contacts, "notes": self.notes, "tags": self.tags}
             pickle.dump(data, file)
         print("Data saved successfully.")
 
-    def load_data(self, filename):
+    def load_data(self, filename="save.pickle"):
         try:
             with open(filename, 'rb') as file:
                 data = pickle.load(file)
@@ -206,14 +209,17 @@ class BotAssist:
         file_sorter = FileSorter(folder_path)
         file_sorter.core()
 
+    def show_all_contacts(self):
+        if self.contacts:
+            return "\n".join(map(str, self.contacts))
+        else:
+            return "Contact list is empty."
+
 def main():
    assistant =  BotAssist()
-   
+   assistant.load_data()
 
    while True:
-       
-              
-       
        command = input("\nEnter your command for start(for menu-press 'menu'): ").lower()
     
        if command == '1':
@@ -297,12 +303,12 @@ def main():
                     print(result.tags, "|", result.text)
             else:
                 print("Not found.")
-                
-       elif command == "save":
-           filename = input("Enter the filename to save data: ")
-           assistant.save_data(filename)
-
-       elif command == 'load':
+       elif command == 'show all':
+            print(assistant.show_all_contacts())            
+       elif command == "save handler":
+            filename = input("Enter the filename to save data: ")
+            assistant.save_data(filename)
+       elif command == 'load file':
             filename = input("Enter the filename to load data: ")
             assistant.load_data(filename) 
        elif command == 'sort':
@@ -312,14 +318,21 @@ def main():
 
            
        elif command == 'menu':
-            print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n save-if you want save information\n open-if you want to continue with the previously saved information\n exit, break, end-if you want exit\n ")
-        
+           
+            print("\nHello, I'm your 'Personal Assistant'.\nI save all information automatically. I can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n show all-Show all contacts \n sort-if you want sort folder\n save handler-if you want save information\n load file-if you want to continue with the previously saved information\n exit, break, end-if you want exit\n ")
+         
 
        elif command in ['end', 'close', 'exit']:
           break
        else:
           print("Invalid, Try Again:")
-           
+
+   return assistant       
            
 if __name__ == "__main__":
-    main()
+    try:
+        assistant = main()  
+        if assistant:
+            assistant.save_data()  
+    except Exception as error:
+        print(f"An error occurred: {error}")
