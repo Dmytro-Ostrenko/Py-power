@@ -312,8 +312,8 @@ def main():
 
            
        elif command == 'menu':
-            print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n")
-          
+            print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n sort-if you want sort folder\n save-if you want save information\n open-if you want to continue with the previously saved information\n exit, break, end-if you want exit\n ")
+        
 
        elif command in ['end', 'close', 'exit']:
           break
