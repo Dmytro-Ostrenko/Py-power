@@ -88,13 +88,16 @@ class BotAssist:
 
     def edit_contact(self, old_contact_name, new_name, new_address, new_phone, new_email, new_birthday):
       contact_found = False
-      if not self.validate_phone(new_phone):
-        print("Invalid phone number format. Please enter a 10-digit number.")
-        return
+      while True:
+          if not self.validate_phone(new_phone):
+            new_phone = input("Invalid phone number. Please enter a 10-digit number: ")
+            continue
 
-      if not self.validate_email(new_email):
-        print("Invalid email format. Please enter a valid email address.")
-        return
+          if not self.validate_email(new_email):
+            new_email = input("Invalid email. Please enter email again: ")
+            continue
+          break
+            
       for contact in self.contacts:
         if contact.name.lower() == old_contact_name.lower():
             contact_found = True
