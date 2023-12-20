@@ -11,7 +11,7 @@ class Contact:
         self.email = email
         self.birthday = birthday
     def __str__(self):
-        return f"{self.name}:{self.address}: {self.phone}: {self.email}: {self.birthday}"
+        return f"Name: {self.name} | Adress: {self.address} | Phone number: {self.phone} | Email: {self.email} | Date of birth: {self.birthday}"
 
 class Note:
     def __init__(self, text):
@@ -32,12 +32,16 @@ class BotAssist:
 
     def add_contact(self, name, address, phone, email, birthday):
         while True:
+          if not name:
+            name = input("Name is obligatory, enter the name for new contact: ")
+            continue
+          
           if not self.validate_phone(phone):
-            phone = input("Invalid phone number. Please enter a 10-digit number: ")
+            phone = input("Invalid phone number format. Please enter a 10-digit number: ")
             continue
 
           if not self.validate_email(email):
-            email = input("Invalid email. Please enter email again: ")
+            email = input("Invalid email format. Please enter email again: ")
             continue
           break
         for contact in self.contacts:
@@ -89,15 +93,18 @@ class BotAssist:
     def edit_contact(self, old_contact_name, new_name, new_address, new_phone, new_email, new_birthday):
       contact_found = False
       while True:
+          if not new_name:
+            new_name= input("Name is obligatory, enter the name for new contact: ")
+            continue
+          
           if not self.validate_phone(new_phone):
-            new_phone = input("Invalid phone number. Please enter a 10-digit number: ")
+            new_phone = input("Invalid phone number format. Please enter a 10-digit number: ")
             continue
 
           if not self.validate_email(new_email):
-            new_email = input("Invalid email. Please enter email again: ")
+            new_email = input("Invalid email format. Please enter email again: ")
             continue
           break
-            
       for contact in self.contacts:
         if contact.name.lower() == old_contact_name.lower():
             contact_found = True
@@ -217,6 +224,11 @@ class BotAssist:
             return "\n".join(map(str, self.contacts))
         else:
             return "Contact list is empty."
+    def show_all_notes(self):
+        if self.notes:
+            return "\n".join(map(str, self.notes))
+        else:
+            return "Note list is empty."
 
 def main():
    assistant =  BotAssist()
@@ -240,7 +252,7 @@ def main():
           if results:
              print("Search Results:")
              for result in results:
-                 print(result.name, "|", result.address, "|", result.phone, "|", result.email, "|", result.birthday, "|")
+                 print("Name:", result.name, "|", "Address:", result.address, "|", "Phone number:", result.phone, "|", "Email:", result.email, "|", "Date of birth:", result.birthday, "|")
           else:
            print("No contacts found.")
 
@@ -307,11 +319,14 @@ def main():
             else:
                 print("Not found.")
        elif command == 'show all':
-            print(assistant.show_all_contacts())            
-       elif command == "save handler":
-            filename = input("Enter the filename to save data: ")
-            assistant.save_data(filename)
-       elif command == 'load file':
+            print(assistant.show_all_contacts())
+       elif command == 'show all notes':
+            print(assistant.show_all_notes())        
+       elif command == "save":
+           filename = input("Enter the filename to save data: ")
+           assistant.save_data(filename)
+
+       elif command == 'load':
             filename = input("Enter the filename to load data: ")
             assistant.load_data(filename) 
        elif command == 'sort':
@@ -321,9 +336,8 @@ def main():
 
            
        elif command == 'menu':
-           
-            print("\nHello, I'm your 'Personal Assistant'.\nI save all information automatically. I can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n show all-Show all contacts \n sort-if you want sort folder\n save handler-if you want save information\n load file-if you want to continue with the previously saved information\n exit, break, end-if you want exit\n ")
-         
+            print("\nI can make next comand:\n 1-add contact\n 2-search contact\n 3-delete contact\n 4-edit contact\n 5-find birthday\n 6-add note \n 7-search note \n 8-edit or delete note\n 9-add tag \n 10-search note by tag \n show all-Show all contacts \n sort-if you want sort folder\n exit-if you want exit\n save-if you want save information\n show all notes- Show all notes")
+          
 
        elif command in ['end', 'close', 'exit']:
           break
