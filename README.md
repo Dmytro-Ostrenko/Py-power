@@ -1,9 +1,9 @@
-# :robot:   Py-power:robot:
+# :robot:   Py-power:robot:     <p align="center" width="200">  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/></p> 
 
 
 
 
-# Інструкція з встановлення та користування «Персональним помічником» <p align="center" width="200">  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/></p>
+# Інструкція з встановлення та користування «Персональним помічником»
 ## Передумови
 Переконайтеся, що на вашому комп'ютері встановлено Python версії 3.11 або новіше. Ви можете завантажити Python з [офіційного сайту](https://www.python.org/downloads/).
 
