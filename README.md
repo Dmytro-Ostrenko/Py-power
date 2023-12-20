@@ -1,9 +1,7 @@
-# :robot:   Py-power:robot:     <p align="center" width="200">  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/></p> 
 
+#  <p align="center">:robot:  Py-power:robot:  </p>      <p align="center" width="200">  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/></p> 
 
-
-
-# Інструкція з встановлення та користування «Персональним помічником»
+# <p align="center">*Інструкція з встановлення та користування «Персональним помічником»*</p>
 ## Передумови
 Переконайтеся, що на вашому комп'ютері встановлено Python версії 3.11 або новіше. Ви можете завантажити Python з [офіційного сайту](https://www.python.org/downloads/).
 
@@ -98,7 +96,7 @@
 :ghost:    Примітка:Слідкуйте за інструкціями програми та вводьте дані у відповідному форматі.
 ---
 
-# Instructions for installing and using "Personal Assistant"
+# <p align="center">*Instructions for installing and using "Personal Assistant"*</p>
 
 ## Prerequisites
 Make sure you have Python version 3.11 or later installed on your computer. You can download Python from [official site]
