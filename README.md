@@ -1,5 +1,5 @@
 
-#  <p align="center">:robot:  Py-power:robot:  </p>      <p align="center" width="200">  <img src="https://kept.com.ua/thumb/dqdN/image-Yuv3uNrau-transformed.png"/></p> 
+#  <p align="center">:robot:  Py-power:robot:  </p> 
 
 # <p align="center">*Інструкція з встановлення та користування «Персональним помічником»*</p>
 ## Передумови
